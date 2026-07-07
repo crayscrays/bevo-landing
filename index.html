@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VirtualsApp — Chat, Transact and Connect globally</title>
+  <meta name="description" content="VirtualsApp is the Web3 messenger where group chats, payments, mini-apps and your Butler agent live in one place. Join the waitlist." />
+  <meta property="og:title" content="VirtualsApp — Chat, Transact and Connect globally" />
+  <meta property="og:description" content="Group chats, DMs, an embedded wallet, mini-apps and your Butler agent — in one app. Join the waitlist." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e100f'/%3E%3Cpath d='M8 10l8 13 8-13' stroke='%2328bd8f' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-brand" href="#top" aria-label="VirtualsApp home">
+      <span class="nav-logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="8" fill="var(--card)"/><path d="M8 10l8 13 8-13" stroke="var(--primary)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </span>
+      VirtualsApp
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#butler">Butler</a>
+      <a class="btn btn-primary btn-sm" href="#waitlist">Join the waitlist</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Now onboarding early access</p>
+        <h1>Chat, Transact and <span class="grad-text">Connect globally</span></h1>
+        <p class="lede">
+          VirtualsApp is the messenger built for Web3 — group chats and DMs with an
+          embedded wallet, mini-apps inside every conversation, and a Butler agent
+          that trades, tracks and works for you.
+        </p>
+        <form class="waitlist-form" data-waitlist>
+          <label class="visually-hidden" for="hero-email">Email address</label>
+          <input id="hero-email" type="email" name="email" required
+                 placeholder="you@example.com" autocomplete="email" />
+          <button class="btn btn-primary" type="submit">Join the waitlist</button>
+        </form>
+        <p class="form-note" data-waitlist-note>Free early access. No spam — just your invite.</p>
+      </div>
+
+      <!-- CSS phone mockup -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-header">
+            <span class="avatar grad-bg">V</span>
+            <div>
+              <div class="chat-title">VirtualsApp Global</div>
+              <div class="chat-sub"><span class="dot"></span>2,481 online</div>
+            </div>
+          </div>
+          <div class="phone-body">
+            <div class="bubble received">
+              <span class="bubble-name">mika.eth</span>
+              gm — payout from last night's drop just landed 🎉
+            </div>
+            <div class="bubble received tx">
+              <span class="bubble-name">Butler</span>
+              <span class="tx-row"><span class="tx-icon">↗</span> Sent <b>120 USDC</b> to mika.eth</span>
+              <span class="tx-status">Confirmed on Base</span>
+            </div>
+            <div class="bubble sent">nice. split it with the group?</div>
+            <div class="bubble received">
+              <span class="bubble-name">mika.eth</span>
+              already did — check the mini-app 👇
+            </div>
+            <div class="bubble received miniapp">
+              <span class="miniapp-chip">Mini-app</span>
+              <span class="miniapp-title">Group Split</span>
+              <span class="miniapp-sub">4 members · 30 USDC each</span>
+            </div>
+          </div>
+          <div class="phone-input">
+            <span>Message…</span>
+            <span class="send-btn grad-bg">➤</span>
+          </div>
+        </div>
+        <div class="glow"></div>
+      </div>
+    </section>
+
+    <!-- ============ Features ============ -->
+    <section class="features" id="features">
+      <h2>One app for your people <span class="grad-text">and your money</span></h2>
+      <p class="section-lede">Everything a chat app should do — plus everything a wallet should.</p>
+
+      <div class="feature-grid">
+        <article class="card">
+          <div class="card-icon">💬</div>
+          <h3>Group chats &amp; DMs</h3>
+          <p>Fast, familiar messaging with communities, channels and private
+             conversations — end-to-end encrypted by design.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Transact in the chat</h3>
+          <p>An embedded wallet is your identity. Send, receive and split with
+             anyone in the conversation — no addresses to copy, no app-switching.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🧩</div>
+          <h3>Mini-apps everywhere</h3>
+          <p>Games, tools and drops run right inside your groups. Builders ship
+             mini-apps to where your community already is.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🎩</div>
+          <h3>Your Butler agent</h3>
+          <p>An AI agent that lives in your chats — it trades on your approval,
+             tracks your portfolio and briefs you with a daily digest.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Butler band ============ -->
+    <section class="butler" id="butler">
+      <div class="butler-inner">
+        <div class="butler-copy">
+          <p class="eyebrow">Meet Butler</p>
+          <h2>An agent that works while you chat</h2>
+          <p class="section-lede left">
+            Ask Butler to trade, watch a token or summarize what you missed.
+            Every transaction waits for your hold-to-approve — you stay in
+            control, always.
+          </p>
+          <ul class="butler-list">
+            <li><span class="tick">✓</span> Trade with hold-to-approve safety</li>
+            <li><span class="tick">✓</span> Portfolio &amp; reward tracking</li>
+            <li><span class="tick">✓</span> Daily digest of your groups</li>
+          </ul>
+        </div>
+        <div class="butler-demo" aria-hidden="true">
+          <div class="demo-line user">“Butler, swap 0.5 ETH to USDC when gas is low”</div>
+          <div class="demo-line agent"><b>Butler</b> — Watching gas… I’ll queue the swap and ask you to approve. 🎩</div>
+          <div class="demo-approve grad-bg">Hold to approve</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Waitlist CTA ============ -->
+    <section class="cta" id="waitlist">
+      <h2>Be first in. <span class="grad-text">Join the waitlist.</span></h2>
+      <p class="section-lede">Early members get priority invites and first access to mini-app drops.</p>
+      <form class="waitlist-form center" data-waitlist>
+        <label class="visually-hidden" for="cta-email">Email address</label>
+        <input id="cta-email" type="email" name="email" required
+               placeholder="you@example.com" autocomplete="email" />
+        <button class="btn btn-primary" type="submit">Join the waitlist</button>
+      </form>
+      <p class="form-note" data-waitlist-note>We’ll only email you about your invite.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">VirtualsApp</span>
+      <span class="footer-tag">Chat, Transact and Connect globally.</span>
+      <span class="footer-copy">© 2026 VirtualsApp. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
