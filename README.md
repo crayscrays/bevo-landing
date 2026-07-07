@@ -1,7 +1,11 @@
 # bevo-landing
 
-Static landing page for VirtualsApp (`bevo-app`) — "Chat, Transact and
-Connect globally" — with a waitlist CTA.
+Static landing page for VirtualsApp (`bevo-app`) — "Social and execute in
+one place" — with a waitlist / early-access CTA. Content and section
+structure reference the staging landing page
+(virtualsapplandingpage-staging.up.railway.app): hero, waitlist rewards,
+Why VirtualsApp (Butler / marketplace / crew), agent ecosystem examples,
+how-it-works steps + stats, waitlist CTA.
 
 No build step, no dependencies: plain HTML/CSS/JS mirroring the app's design
 language (`bevo-app/lib/theme/app_theme.dart`):

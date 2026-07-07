@@ -66,6 +66,20 @@ img, svg { display: inline-block; vertical-align: middle; }
 }
 .eyebrow.center { text-align: center; }
 
+/* "Now in early access" pill */
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
 /* Headline moments — AppTheme.serif (Instrument Serif italic) */
 h1, h2 {
   font-family: var(--serif);
@@ -213,6 +227,11 @@ h2 {
   0%, 100% { transform: scale(1); box-shadow: 0 0 26px hsl(162 65% 45% / 0.3), inset 0 0 18px hsl(162 80% 70% / 0.25); }
   50%      { transform: scale(1.06); box-shadow: 0 0 44px hsl(162 65% 45% / 0.5), inset 0 0 22px hsl(162 80% 70% / 0.35); }
 }
+.orb-sm {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0.8rem;
+}
 @media (prefers-reduced-motion: reduce) {
   .orb { animation: none; }
   html { scroll-behavior: auto; }
@@ -341,20 +360,18 @@ h2 {
   font-size: 0.7rem;
 }
 
-/* ---------- features ---------- */
-.features {
+/* ---------- section scaffolding ---------- */
+.rewards, .why, .ecosystem, .how {
   max-width: var(--max);
   margin: 0 auto;
   padding: 4rem 1.5rem;
   text-align: center;
 }
-.features .eyebrow { margin-bottom: 0.8rem; }
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  text-align: left;
-}
+.rewards .eyebrow, .why .eyebrow, .ecosystem .eyebrow, .how .eyebrow,
+.cta .eyebrow { margin-bottom: 0.8rem; }
+.rewards h2, .why h2, .ecosystem h2, .how h2 { margin-bottom: 2.2rem; }
+.why h2, .ecosystem h2 { margin-bottom: 0; }
+
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -366,7 +383,7 @@ h2 {
 .card-icon {
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
-  min-height: 2rem;
+  min-height: 2.2rem;
   display: flex;
   align-items: center;
 }
@@ -378,67 +395,133 @@ h2 {
 }
 .card p { color: var(--muted-fg); font-size: 0.92rem; }
 
-/* ---------- butler band ---------- */
-.butler {
+/* ---------- waitlist rewards ---------- */
+.reward-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+
+/* ---------- why VirtualsApp ---------- */
+.why {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  max-width: none;
   background:
-    radial-gradient(60% 120% at 80% 50%, hsl(162 65% 45% / 0.07), transparent),
+    radial-gradient(60% 120% at 50% 0%, hsl(162 65% 45% / 0.06), transparent),
     var(--card);
 }
-.butler-inner {
+.why-head, .why-grid { max-width: var(--max); margin: 0 auto; }
+.why-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 4.5rem 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: left;
+  margin-top: 2.2rem;
 }
-.butler-list { list-style: none; display: grid; gap: 0.6rem; margin-top: 0.5rem; }
-.butler-list li { display: flex; align-items: center; gap: 0.6rem; color: var(--foreground); }
+.why .card { background: var(--background); }
+.tick-list { list-style: none; display: grid; gap: 0.55rem; margin-top: 0.8rem; }
+.tick-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--muted-fg);
+  font-size: 0.92rem;
+}
 .tick {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 999px;
+  width: 20px; height: 20px; border-radius: 999px;
   background: hsl(162 65% 45% / 0.15);
   color: var(--primary);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   flex: none;
+  margin-top: 0.15rem;
 }
-.butler-demo {
+
+/* ---------- agent ecosystem ---------- */
+.agent-grid {
   display: grid;
-  gap: 0.8rem;
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: left;
 }
-.demo-line {
-  padding: 0.7rem 0.9rem;
-  border-radius: 12px;
-  font-size: 0.95rem;
-}
-.demo-line.user {
-  background: var(--secondary);
-  justify-self: end;
-  border-bottom-right-radius: 4px;
-}
-.demo-line.agent {
+.agent-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   background: var(--card);
   border: 1px solid var(--border);
-  justify-self: start;
-  border-bottom-left-radius: 4px;
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
-.demo-line.agent b { color: var(--primary); }
-.demo-approve {
-  justify-self: center;
-  padding: 0.65rem 2.2rem;
+.agent-chip:hover { border-color: var(--primary-dim); transform: translateY(-2px); }
+.agent-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  flex: none;
+  border-radius: 12px;
+  background: var(--secondary);
+  font-size: 1.25rem;
+}
+.agent-chip h3 { font-size: 0.98rem; font-weight: 650; }
+.agent-chip p { color: var(--muted-fg); font-size: 0.82rem; }
+
+/* ---------- how it works ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.35rem;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
   border-radius: 999px;
+  background: linear-gradient(120deg, var(--grad-a), var(--grad-b));
   color: var(--on-primary);
   font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 20px hsl(162 65% 45% / 0.3);
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+}
+.step h3 { font-size: 1.02rem; font-weight: 650; margin-bottom: 0.4rem; }
+.step p { color: var(--muted-fg); font-size: 0.92rem; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.stat {
+  padding: 1.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.stat-value {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+.stat-label {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted-fg);
+  font-size: 0.88rem;
 }
 
 /* ---------- CTA ---------- */
@@ -448,7 +531,7 @@ h2 {
   padding: 5rem 1.5rem;
   text-align: center;
 }
-.cta .eyebrow { margin-bottom: 0.8rem; }
+.cta .orb { margin-inline: auto; }
 
 /* ---------- footer ---------- */
 .footer { border-top: 1px solid var(--border); }
@@ -472,16 +555,12 @@ h2 {
   .hero { grid-template-columns: 1fr; text-align: center; padding-top: 3rem; }
   .hero-copy .lede { margin-inline: auto; }
   .hero-copy .waitlist-form { margin-inline: auto; }
-  .feature-grid { grid-template-columns: repeat(2, 1fr); }
-  .butler-inner { grid-template-columns: 1fr; }
-  .butler-copy .orb { margin-inline: auto; }
-  .butler-copy { text-align: center; }
-  .butler-copy .section-lede.left { text-align: center; margin-inline: auto; }
-  .butler-list { justify-content: center; justify-items: center; }
+  .reward-grid, .why-grid, .steps, .stats { grid-template-columns: 1fr; }
+  .agent-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
   .nav-links a:not(.btn) { display: none; }
-  .feature-grid { grid-template-columns: 1fr; }
+  .agent-grid { grid-template-columns: 1fr; }
   .waitlist-form { flex-direction: column; }
   .waitlist-form .btn { width: 100%; }
 }
