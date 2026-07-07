@@ -381,13 +381,19 @@ h2 {
   background: var(--secondary);
   color: var(--muted-fg);
 }
+.phone-input-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.phone-input-actions .smile { width: 17px; height: 17px; stroke-width: 1.7; }
 .send-btn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 26px; height: 26px; border-radius: 999px;
   background: var(--primary);
   color: var(--on-primary);
 }
-.send-btn .icon { width: 13px; height: 13px; stroke-width: 2.2; }
+.send-btn .icon { width: 12px; height: 12px; stroke-width: 1.9; margin: 1px 1px 0 0; }
 
 /* ---------- sections ---------- */
 .rewards, .ecosystem, .how, .cta {
