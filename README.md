@@ -27,21 +27,23 @@ open index.html            # or any static server:
 python3 -m http.server 8080
 ```
 
-## Wire up the waitlist (collect emails)
+## Wire up the waitlist (collect emails into a Google Sheet)
 
-Signups are collected via a third-party form endpoint — Formspree by
-default. One-time setup:
+Signups append rows to a Google Sheet via a Google Apps Script web app.
+One-time setup (~2 minutes):
 
-1. Sign up free at [formspree.io](https://formspree.io) and create a form
-   (name it e.g. "VirtualsApp waitlist").
-2. Copy the form's endpoint, e.g. `https://formspree.io/f/abcdwxyz`.
-3. Paste it into `WAITLIST_ENDPOINT` at the top of `main.js` and redeploy.
+1. Create a new Google Sheet (e.g. "VirtualsApp Waitlist").
+2. In the sheet: **Extensions ▸ Apps Script**, replace the default code
+   with the contents of [`waitlist-apps-script.gs`](waitlist-apps-script.gs),
+   and save.
+3. **Deploy ▸ New deployment ▸ Web app**, with *Execute as: Me* and
+   *Who has access: Anyone*, then authorize when prompted.
+4. Copy the Web app URL (ends in `/exec`) into `WAITLIST_ENDPOINT` at the
+   top of `main.js` and redeploy the page.
 
-Every signup then appears in the Formspree dashboard (inbox view, CSV
-export, optional email/Slack notifications). The form POSTs
-`{ "email": "...", "source": "bevo-landing" }` as JSON, so any
-Formspree-compatible endpoint (e.g. [web3forms.com](https://web3forms.com))
-works too.
+Each signup lands as a `Timestamp | Email | Source` row on a "Waitlist"
+tab (duplicates are skipped). The page posts JSON with a `text/plain`
+content type to avoid the CORS preflight Apps Script can't answer.
 
 Until the endpoint is set, the form shows the success state locally
 without storing anything.

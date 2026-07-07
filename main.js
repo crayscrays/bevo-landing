@@ -1,12 +1,11 @@
 // Waitlist form handling.
 //
-// Emails are collected via a third-party form endpoint (Formspree-style).
-// Setup (one time):
-//   1. Create a free form at https://formspree.io (or web3forms.com).
-//   2. Paste the endpoint below, e.g. "https://formspree.io/f/abcdwxyz".
-// Submissions then appear in the Formspree dashboard (with CSV export and
-// email notifications). While the endpoint is empty the form just shows
-// the success state locally without storing anything.
+// Emails are collected into a Google Sheet via a Google Apps Script web
+// app — see waitlist-apps-script.gs in this repo for the script and the
+// 2-minute setup. Paste the deployed /exec URL below, e.g.
+// "https://script.google.com/macros/s/AKfyc.../exec".
+// While the endpoint is empty the form just shows the success state
+// locally without storing anything.
 const WAITLIST_ENDPOINT = "";
 
 document.querySelectorAll("[data-waitlist]").forEach((form) => {
@@ -23,12 +22,11 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
 
     try {
       if (WAITLIST_ENDPOINT) {
+        // text/plain keeps this a "simple" request — no CORS preflight,
+        // which Google Apps Script web apps can't answer.
         const res = await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({ email, source: "bevo-landing" }),
         });
         if (!res.ok) throw new Error(`waitlist endpoint returned ${res.status}`);
