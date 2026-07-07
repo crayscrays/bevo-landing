@@ -27,11 +27,24 @@ open index.html            # or any static server:
 python3 -m http.server 8080
 ```
 
-## Wire up the waitlist
+## Wire up the waitlist (collect emails)
 
-The form currently succeeds locally without storing anything. Point it at a
-real collector by setting `WAITLIST_ENDPOINT` at the top of `main.js`; the
-form POSTs `{ "email": "...", "source": "bevo-landing" }` as JSON.
+Signups are collected via a third-party form endpoint — Formspree by
+default. One-time setup:
+
+1. Sign up free at [formspree.io](https://formspree.io) and create a form
+   (name it e.g. "VirtualsApp waitlist").
+2. Copy the form's endpoint, e.g. `https://formspree.io/f/abcdwxyz`.
+3. Paste it into `WAITLIST_ENDPOINT` at the top of `main.js` and redeploy.
+
+Every signup then appears in the Formspree dashboard (inbox view, CSV
+export, optional email/Slack notifications). The form POSTs
+`{ "email": "...", "source": "bevo-landing" }` as JSON, so any
+Formspree-compatible endpoint (e.g. [web3forms.com](https://web3forms.com))
+works too.
+
+Until the endpoint is set, the form shows the success state locally
+without storing anything.
 
 ## Deploy
 

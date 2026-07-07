@@ -1,8 +1,12 @@
 // Waitlist form handling.
 //
-// Set WAITLIST_ENDPOINT to a real collector (e.g. a bevo-server route,
-// Formspree, or a Google Form action) to actually store signups. While it
-// is empty the form just shows the success state locally.
+// Emails are collected via a third-party form endpoint (Formspree-style).
+// Setup (one time):
+//   1. Create a free form at https://formspree.io (or web3forms.com).
+//   2. Paste the endpoint below, e.g. "https://formspree.io/f/abcdwxyz".
+// Submissions then appear in the Formspree dashboard (with CSV export and
+// email notifications). While the endpoint is empty the form just shows
+// the success state locally without storing anything.
 const WAITLIST_ENDPOINT = "";
 
 document.querySelectorAll("[data-waitlist]").forEach((form) => {
@@ -21,7 +25,10 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
       if (WAITLIST_ENDPOINT) {
         const res = await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
           body: JSON.stringify({ email, source: "bevo-landing" }),
         });
         if (!res.ok) throw new Error(`waitlist endpoint returned ${res.status}`);
@@ -36,7 +43,7 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
     } catch (err) {
       console.error(err);
       button.disabled = false;
-      button.textContent = "Join the waitlist";
+      button.textContent = "Join early access";
       if (note) {
         note.textContent = "Something went wrong — please try again.";
         note.classList.remove("success");
