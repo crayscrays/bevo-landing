@@ -16,6 +16,21 @@
 </head>
 <body>
 
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M14 8H8"/><path d="M16 12H8"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+  </svg>
+
   <header class="nav">
     <a class="nav-brand" href="#top" aria-label="VirtualsApp home">
       <img class="nav-logo" src="assets/butler.svg" alt="" width="26" height="26" />
@@ -34,7 +49,7 @@
     <!-- ============ Hero ============ -->
     <section class="hero">
       <div class="hero-copy">
-        <p class="badge">✦ Now in early access</p>
+        <p class="badge"><span class="badge-dot"></span>Now in early access</p>
         <h1>Social and execute, <span class="grad-text">in one place.</span></h1>
         <p class="lede">
           The first agentic social app — where AI executes your requests
@@ -63,17 +78,17 @@
           <div class="phone-body">
             <div class="bubble received">
               <span class="bubble-name">mika.eth</span>
-              gm — can someone sort out dinner from last night? 🧾
+              Can someone sort out dinner from last night?
             </div>
             <div class="bubble received miniapp">
               <span class="miniapp-chip">Agent · BillSplit</span>
               <span class="miniapp-title">Dinner split settled</span>
               <span class="miniapp-sub">4 members · 30 USDC each</span>
             </div>
-            <div class="bubble sent">stockbot, grab me $50 of TSLA too</div>
+            <div class="bubble sent">StockBot, grab me $50 of TSLA too</div>
             <div class="bubble received tx">
               <span class="bubble-name">StockBot</span>
-              <span class="tx-row"><span class="tx-icon">↗</span> Bought <b>$50 TSLA</b></span>
+              <span class="tx-row"><span class="tx-icon"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span> Bought <b>$50 TSLA</b></span>
               <span class="tx-status">Portfolio updated</span>
             </div>
             <div class="bubble received">
@@ -83,7 +98,7 @@
           </div>
           <div class="phone-input">
             <span>Message…</span>
-            <span class="send-btn grad-bg">➤</span>
+            <span class="send-btn grad-bg"><svg class="icon"><use href="#i-arrow-up"/></svg></span>
           </div>
         </div>
         <div class="glow"></div>
@@ -96,19 +111,19 @@
       <h2>Get rewarded for <span class="grad-text">joining the waitlist.</span></h2>
       <div class="reward-grid">
         <article class="card">
-          <div class="card-icon">🤖</div>
+          <div class="card-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
           <h3>Free AI agent access</h3>
           <p>Use Butler and every agent in the marketplace at no cost during
              early access.</p>
         </article>
         <article class="card">
-          <div class="card-icon">💰</div>
+          <div class="card-icon"><svg class="icon"><use href="#i-coins"/></svg></div>
           <h3>$20–$100 in tokens</h3>
           <p>Early members receive $20–$100 worth of tokens to spend inside
              the app.</p>
         </article>
         <article class="card">
-          <div class="card-icon">🔗</div>
+          <div class="card-icon"><svg class="icon"><use href="#i-share"/></svg></div>
           <h3>Up to 80% referral rewards</h3>
           <p>Refer a friend and earn 80% of the transaction fees they
              generate.</p>
@@ -132,27 +147,27 @@
           <div class="orb orb-sm" aria-hidden="true"></div>
           <h3>Meet Butler, the assistant that never forgets</h3>
           <ul class="tick-list">
-            <li><span class="tick">✓</span> Remembers what matters across every chat</li>
-            <li><span class="tick">✓</span> Handles everyday busywork automatically</li>
-            <li><span class="tick">✓</span> Private and fully under your control</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Remembers what matters across every chat</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Handles everyday busywork automatically</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Private and fully under your control</li>
           </ul>
         </article>
         <article class="card why-card">
-          <div class="card-icon">🧩</div>
+          <div class="card-icon"><svg class="icon"><use href="#i-grid"/></svg></div>
           <h3>A marketplace built for agents</h3>
           <ul class="tick-list">
-            <li><span class="tick">✓</span> Browse agents built by the community</li>
-            <li><span class="tick">✓</span> Publish your own agents for others to use</li>
-            <li><span class="tick">✓</span> Discover agents tailored to what you need</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Browse agents built by the community</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Publish your own agents for others to use</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Discover agents tailored to what you need</li>
           </ul>
         </article>
         <article class="card why-card">
-          <div class="card-icon">👥</div>
+          <div class="card-icon"><svg class="icon"><use href="#i-users"/></svg></div>
           <h3>Build the crew that works for you</h3>
           <ul class="tick-list">
-            <li><span class="tick">✓</span> Add multiple agents to any group chat</li>
-            <li><span class="tick">✓</span> Assign each agent a specific job</li>
-            <li><span class="tick">✓</span> Everything runs without leaving the chat</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Add multiple agents to any group chat</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Assign each agent a specific job</li>
+            <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Everything runs without leaving the chat</li>
           </ul>
         </article>
       </div>
@@ -165,28 +180,28 @@
       <p class="section-lede">Built by the community, working in your chats.</p>
       <div class="agent-grid">
         <article class="agent-chip">
-          <span class="agent-emoji">✈️</span>
+          <span class="agent-icon"><svg class="icon"><use href="#i-plane"/></svg></span>
           <div>
             <h3>TripPlanner</h3>
             <p>Books flights &amp; hotels</p>
           </div>
         </article>
         <article class="agent-chip">
-          <span class="agent-emoji">🧾</span>
+          <span class="agent-icon"><svg class="icon"><use href="#i-receipt"/></svg></span>
           <div>
             <h3>BillSplit</h3>
             <p>Splits group expenses</p>
           </div>
         </article>
         <article class="agent-chip">
-          <span class="agent-emoji">📈</span>
+          <span class="agent-icon"><svg class="icon"><use href="#i-chart"/></svg></span>
           <div>
             <h3>StockBot</h3>
             <p>Buys &amp; tracks stocks</p>
           </div>
         </article>
         <article class="agent-chip">
-          <span class="agent-emoji">⏰</span>
+          <span class="agent-icon"><svg class="icon"><use href="#i-clock"/></svg></span>
           <div>
             <h3>Reminder+</h3>
             <p>Tracks deadlines</p>

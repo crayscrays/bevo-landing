@@ -27,7 +27,7 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
         if (!res.ok) throw new Error(`waitlist endpoint returned ${res.status}`);
       }
       form.reset();
-      button.textContent = "You're in ✓";
+      button.textContent = "You're on the list";
       if (note) {
         note.textContent = "You're on the list — watch your inbox for the invite.";
         note.classList.remove("error");

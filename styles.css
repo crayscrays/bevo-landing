@@ -66,18 +66,38 @@ img, svg { display: inline-block; vertical-align: middle; }
 }
 .eyebrow.center { text-align: center; }
 
+/* Inline SVG line icons */
+.icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* "Now in early access" pill */
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--primary);
+  color: var(--foreground);
   border: 1px solid var(--border);
   background: var(--card);
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
   margin-bottom: 1.25rem;
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--primary);
 }
 
 /* Headline moments — AppTheme.serif (Instrument Serif italic) */
@@ -322,8 +342,8 @@ h2 {
   width: 18px; height: 18px; border-radius: 999px;
   background: hsl(162 65% 45% / 0.18);
   color: var(--primary);
-  font-size: 0.7rem;
 }
+.tx-icon .icon { width: 10px; height: 10px; stroke-width: 2.4; }
 .tx-status { display: block; font-size: 0.68rem; color: var(--muted-fg); margin-top: 0.15rem; }
 .bubble.miniapp {
   border: 1px solid var(--border);
@@ -357,8 +377,8 @@ h2 {
   display: inline-flex; align-items: center; justify-content: center;
   width: 26px; height: 26px; border-radius: 999px;
   color: var(--on-primary);
-  font-size: 0.7rem;
 }
+.send-btn .icon { width: 13px; height: 13px; stroke-width: 2.2; }
 
 /* ---------- section scaffolding ---------- */
 .rewards, .why, .ecosystem, .how {
@@ -381,11 +401,15 @@ h2 {
 }
 .card:hover { border-color: var(--primary-dim); transform: translateY(-2px); }
 .card-icon {
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
-  min-height: 2.2rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--secondary);
+  color: var(--primary);
+  margin-bottom: 0.9rem;
 }
 .card h3 {
   font-family: var(--sans);
@@ -434,11 +458,10 @@ h2 {
   width: 20px; height: 20px; border-radius: 999px;
   background: hsl(162 65% 45% / 0.15);
   color: var(--primary);
-  font-size: 0.7rem;
-  font-weight: 700;
   flex: none;
   margin-top: 0.15rem;
 }
+.tick .icon { width: 11px; height: 11px; stroke-width: 2.6; }
 
 /* ---------- agent ecosystem ---------- */
 .agent-grid {
@@ -458,7 +481,7 @@ h2 {
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .agent-chip:hover { border-color: var(--primary-dim); transform: translateY(-2px); }
-.agent-emoji {
+.agent-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -466,7 +489,7 @@ h2 {
   flex: none;
   border-radius: 12px;
   background: var(--secondary);
-  font-size: 1.25rem;
+  color: var(--primary);
 }
 .agent-chip h3 { font-size: 0.98rem; font-weight: 650; }
 .agent-chip p { color: var(--muted-fg); font-size: 0.82rem; }
