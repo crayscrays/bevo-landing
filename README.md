@@ -3,9 +3,18 @@
 Static landing page for VirtualsApp (`bevo-app`) — "Chat, Transact and
 Connect globally" — with a waitlist CTA.
 
-No build step, no dependencies: plain HTML/CSS/JS styled after the app's
-`virtuals` theme (`bevo-app/lib/theme/app_theme.dart` — dark neutral
-background, teal-green accent, green→teal gradient).
+No build step, no dependencies: plain HTML/CSS/JS mirroring the app's design
+language (`bevo-app/lib/theme/app_theme.dart`):
+
+- `virtuals` theme palette — dark neutral background, teal-green accent,
+  green→teal gradient.
+- Instrument Serif italic for headline moments + Inter body + uppercase
+  eyebrow labels, matching `AppTheme.serif` / `AppTheme.eyebrow`.
+- The Butler mark (`assets/butler.svg`, copied from
+  `bevo-app/assets/images/BUTLER.svg`) and a CSS take on the breathing
+  `ButlerOrb`.
+- Copy follows the app's onboarding voice ("By invitation.", "Welcome in.",
+  "At your service.").
 
 ## Run locally
 
