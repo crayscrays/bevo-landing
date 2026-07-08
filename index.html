@@ -60,11 +60,14 @@
         </p>
         <form class="waitlist-form" data-waitlist>
           <label class="visually-hidden" for="hero-email">Email address</label>
-          <input id="hero-email" type="email" name="email" required
+          <input id="hero-email" type="email" name="email" class="input-email"
                  placeholder="you@example.com" autocomplete="email" />
+          <label class="visually-hidden" for="hero-tg">Telegram handle (optional)</label>
+          <input id="hero-tg" type="text" name="tg" class="input-tg"
+                 placeholder="@telegram" autocomplete="off" spellcheck="false" />
           <button class="btn btn-primary" type="submit">Join early access</button>
         </form>
-        <p class="form-note" data-waitlist-note>Free agent access, token rewards and referral fees for early members.</p>
+        <p class="form-note" data-waitlist-note>Leave your email or Telegram — whichever you prefer.</p>
       </div>
 
       <!-- CSS phone mockup -->
@@ -263,11 +266,14 @@
       <p class="section-lede">Free agent access, $20–$100 in tokens, and up to 80% referral rewards — for early members.</p>
       <form class="waitlist-form center" data-waitlist>
         <label class="visually-hidden" for="cta-email">Email address</label>
-        <input id="cta-email" type="email" name="email" required
+        <input id="cta-email" type="email" name="email" class="input-email"
                placeholder="you@example.com" autocomplete="email" />
+        <label class="visually-hidden" for="cta-tg">Telegram handle (optional)</label>
+        <input id="cta-tg" type="text" name="tg" class="input-tg"
+               placeholder="@telegram" autocomplete="off" spellcheck="false" />
         <button class="btn btn-primary" type="submit">Join early access</button>
       </form>
-      <p class="form-note" data-waitlist-note>We’ll only write when your invitation is ready.</p>
+      <p class="form-note" data-waitlist-note>Email or Telegram — we’ll only write when your invitation is ready.</p>
     </section>
 
   </main>

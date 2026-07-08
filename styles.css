@@ -214,9 +214,11 @@ h2 {
 .waitlist-form {
   display: flex;
   gap: 0.6rem;
-  max-width: 28rem;
+  max-width: 36rem;
   margin-top: 2.25rem;
 }
+.waitlist-form .input-email { flex: 1.3; }
+.waitlist-form .input-tg { flex: 0.9; }
 .waitlist-form.center { margin-inline: auto; justify-content: center; }
 .waitlist-form input {
   flex: 1;

@@ -41,9 +41,14 @@ One-time setup (~2 minutes):
 4. Copy the Web app URL (ends in `/exec`) into `WAITLIST_ENDPOINT` at the
    top of `main.js` and redeploy the page.
 
-Each signup lands as a `Timestamp | Email | Source` row on a "Waitlist"
-tab (duplicates are skipped). The page posts JSON with a `text/plain`
-content type to avoid the CORS preflight Apps Script can't answer.
+Each signup lands as a `Timestamp | Email | Telegram | Source` row on a
+"Waitlist" tab — signups may carry an email, a Telegram handle, or both;
+duplicates (by email or handle) are skipped. The page posts JSON with a
+`text/plain` content type to avoid the CORS preflight Apps Script can't
+answer.
+
+After editing the script, publish it via **Deploy ▸ Manage deployments ▸
+edit ▸ New version** — saving alone doesn't update the live `/exec` URL.
 
 Until the endpoint is set, the form shows the success state locally
 without storing anything.

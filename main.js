@@ -15,7 +15,27 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const email = form.email.value.trim();
-    if (!email) return;
+    // Normalize the handle to a single leading @.
+    const tgRaw = form.tg.value.trim().replace(/^@+/, "");
+    const tg = tgRaw ? `@${tgRaw}` : "";
+
+    // Either contact works, but at least one is needed.
+    if (!email && !tg) {
+      if (note) {
+        note.textContent = "Leave an email or a Telegram handle so we can reach you.";
+        note.classList.remove("success");
+        note.classList.add("error");
+      }
+      return;
+    }
+    if (tgRaw && !/^[A-Za-z0-9_]{3,32}$/.test(tgRaw)) {
+      if (note) {
+        note.textContent = "That Telegram handle doesn't look right — letters, numbers and _ only.";
+        note.classList.remove("success");
+        note.classList.add("error");
+      }
+      return;
+    }
 
     button.disabled = true;
     button.textContent = "Joining…";
@@ -27,14 +47,14 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
         const res = await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({ email, source: "bevo-landing" }),
+          body: JSON.stringify({ email, tg, source: "bevo-landing" }),
         });
         if (!res.ok) throw new Error(`waitlist endpoint returned ${res.status}`);
       }
       form.reset();
       button.textContent = "You're on the list";
       if (note) {
-        note.textContent = "You're on the list — watch your inbox for the invite.";
+        note.textContent = "You're on the list — we'll reach out with your invite.";
         note.classList.remove("error");
         note.classList.add("success");
       }
