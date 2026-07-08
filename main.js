@@ -6,7 +6,7 @@
 // "https://script.google.com/macros/s/AKfyc.../exec".
 // While the endpoint is empty the form just shows the success state
 // locally without storing anything.
-const WAITLIST_ENDPOINT = "";
+const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbxMv2zxOwrpnU-9Sm7dxBe2kVhXRI1U3SeDzZgZeAQbMCa-zoykUL0z0Nv3RALQLQV93Q/exec";
 
 document.querySelectorAll("[data-waitlist]").forEach((form) => {
   const note = form.parentElement.querySelector("[data-waitlist-note]");
