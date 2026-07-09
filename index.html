@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VirtualsApp — Social and execute in one place</title>
+  <title>VirtualsApp: Social and execute in one place</title>
   <meta name="description" content="The first agentic social app where AI executes your requests right inside every chat. Meet Butler, add agents from the marketplace, and join the waitlist for early-access rewards." />
-  <meta property="og:title" content="VirtualsApp — Social and execute in one place" />
+  <meta property="og:title" content="VirtualsApp: Social and execute in one place" />
   <meta property="og:description" content="The first agentic social app where AI executes your requests right inside every chat. Join the waitlist for early access." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -30,19 +30,21 @@
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
     <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></symbol>
     <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
   </svg>
 
   <header class="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="#top" aria-label="VirtualsApp home">
-        <img class="nav-logo" src="assets/butler.svg" alt="" width="26" height="26" />
+        <img class="nav-logo" src="assets/logo.png" alt="" width="38" height="38" />
         VirtualsApp
       </a>
       <nav class="nav-links">
         <a href="#butler">Butler</a>
         <a href="#ecosystem">Ecosystem</a>
         <a href="#how">How it works</a>
-        <a class="btn btn-primary btn-sm" href="#waitlist">Join early access</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#waitlist">Join early access</a>
       </nav>
     </div>
   </header>
@@ -51,11 +53,15 @@
 
     <!-- ============ Hero ============ -->
     <section class="hero">
+      <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true">
+        <source src="assets/Background.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="badge"><span class="badge-dot"></span>Now in early access</p>
-        <h1>Social and execute, in one place.</h1>
+        <h1 class="hero-title">Social &amp; Execute<br><span class="hero-title-sub">In One Place.</span></h1>
         <p class="lede">
-          The first agentic social app — where AI executes your requests
+          The first agentic social app, where AI executes your requests
           right inside every chat.
         </p>
         <form class="waitlist-form" data-waitlist>
@@ -67,7 +73,7 @@
                  placeholder="@telegram" autocomplete="off" spellcheck="false" />
           <button class="btn btn-primary" type="submit">Join early access</button>
         </form>
-        <p class="form-note" data-waitlist-note>Leave your email or Telegram — whichever you prefer.</p>
+        <p class="form-note" data-waitlist-note>Leave your email or Telegram, whichever you prefer.</p>
       </div>
 
       <!-- CSS phone mockup -->
@@ -113,29 +119,28 @@
       </div>
     </section>
 
-    <!-- ============ Waitlist rewards ============ -->
-    <section class="rewards" id="rewards">
-      <p class="eyebrow center">Early access</p>
-      <h2>Get rewarded for joining the waitlist.</h2>
-      <div class="reward-grid">
-        <article class="card">
-          <div class="card-icon"><svg class="icon"><use href="#i-sparkles"/></svg></div>
+    <!-- ============ Early-access benefits ============ -->
+    <section class="hero-benefits">
+      <div class="hero-benefit">
+        <span class="hero-benefit-icon"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+        <div>
           <h3>Free AI agent access</h3>
-          <p>Use Butler and every agent in the marketplace at no cost during
-             early access.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg class="icon"><use href="#i-coins"/></svg></div>
-          <h3>$20–$100 in tokens</h3>
-          <p>Early members receive $20–$100 worth of tokens to spend inside
-             the app.</p>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg class="icon"><use href="#i-share"/></svg></div>
+          <p>Use Butler and every agent in the marketplace at no cost.</p>
+        </div>
+      </div>
+      <div class="hero-benefit">
+        <span class="hero-benefit-icon"><svg class="icon"><use href="#i-coins"/></svg></span>
+        <div>
+          <h3>$20 to $100 in tokens</h3>
+          <p>Early members get tokens to spend inside the app.</p>
+        </div>
+      </div>
+      <div class="hero-benefit">
+        <span class="hero-benefit-icon"><svg class="icon"><use href="#i-share"/></svg></span>
+        <div>
           <h3>Up to 80% referral rewards</h3>
-          <p>Refer a friend and earn 80% of the transaction fees they
-             generate.</p>
-        </article>
+          <p>Earn a share of the fees anyone you refer generates.</p>
+        </div>
       </div>
     </section>
 
@@ -145,7 +150,7 @@
         <p class="eyebrow center">Why VirtualsApp</p>
         <h2>A team of AI agents, living in your chats.</h2>
         <p class="section-lede">
-          Think of it as your group chats — but with a personal AI assistant
+          Think of it as your group chats, but with a personal AI assistant
           and a team of agents inside, ready to remember what matters and
           handle the busywork.
         </p>
@@ -188,32 +193,44 @@
       <p class="section-lede">Built by the community, working in your chats.</p>
       <div class="agent-grid">
         <article class="agent-chip">
-          <span class="agent-icon"><svg class="icon"><use href="#i-plane"/></svg></span>
-          <div>
-            <h3>TripPlanner</h3>
-            <p>Books flights &amp; hotels</p>
+          <div class="agent-chip-head">
+            <span class="agent-icon"><svg class="icon"><use href="#i-plane"/></svg></span>
+            <div>
+              <h3>TripPlanner</h3>
+              <p>Books flights &amp; hotels</p>
+            </div>
           </div>
+          <div class="agent-shot"><img src="assets/travel.png" alt="TripPlanner agent UI" loading="lazy" /></div>
         </article>
         <article class="agent-chip">
-          <span class="agent-icon"><svg class="icon"><use href="#i-receipt"/></svg></span>
-          <div>
-            <h3>BillSplit</h3>
-            <p>Splits group expenses</p>
+          <div class="agent-chip-head">
+            <span class="agent-icon"><svg class="icon"><use href="#i-receipt"/></svg></span>
+            <div>
+              <h3>BillSplit</h3>
+              <p>Splits group expenses</p>
+            </div>
           </div>
+          <div class="agent-shot"><img src="assets/split.png" alt="BillSplit agent UI" loading="lazy" /></div>
         </article>
         <article class="agent-chip">
-          <span class="agent-icon"><svg class="icon"><use href="#i-chart"/></svg></span>
-          <div>
-            <h3>StockBot</h3>
-            <p>Buys &amp; tracks stocks</p>
+          <div class="agent-chip-head">
+            <span class="agent-icon"><svg class="icon"><use href="#i-chart"/></svg></span>
+            <div>
+              <h3>StockBot</h3>
+              <p>Buys &amp; tracks stocks</p>
+            </div>
           </div>
+          <div class="agent-shot"><img src="assets/stock.png" alt="StockBot agent UI" loading="lazy" /></div>
         </article>
         <article class="agent-chip">
-          <span class="agent-icon"><svg class="icon"><use href="#i-clock"/></svg></span>
-          <div>
-            <h3>Reminder+</h3>
-            <p>Tracks deadlines</p>
+          <div class="agent-chip-head">
+            <span class="agent-icon"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <div>
+              <h3>Reminder+</h3>
+              <p>Tracks deadlines</p>
+            </div>
           </div>
+          <div class="agent-shot"><img src="assets/reminder.png" alt="Reminder+ agent UI" loading="lazy" /></div>
         </article>
       </div>
     </section>
@@ -226,7 +243,7 @@
         <article class="step">
           <span class="step-num">1</span>
           <h3>Add Butler to your chat</h3>
-          <p>Start a conversation or drop Butler into an existing group —
+          <p>Start a conversation or drop Butler into an existing group,
              no setup required.</p>
         </article>
         <article class="step">
@@ -263,7 +280,7 @@
       <div class="orb" aria-hidden="true"></div>
       <p class="eyebrow center">Your invitation</p>
       <h2>Welcome in.</h2>
-      <p class="section-lede">Free agent access, $20–$100 in tokens, and up to 80% referral rewards — for early members.</p>
+      <p class="section-lede">Free agent access, $20 to $100 in tokens, and up to 80% referral rewards for early members.</p>
       <form class="waitlist-form center" data-waitlist>
         <label class="visually-hidden" for="cta-email">Email address</label>
         <input id="cta-email" type="email" name="email" class="input-email"
@@ -273,19 +290,67 @@
                placeholder="@telegram" autocomplete="off" spellcheck="false" />
         <button class="btn btn-primary" type="submit">Join early access</button>
       </form>
-      <p class="form-note" data-waitlist-note>Email or Telegram — we’ll only write when your invitation is ready.</p>
+      <p class="form-note" data-waitlist-note>Email or Telegram, we’ll only write when your invitation is ready.</p>
     </section>
 
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <img src="assets/butler.svg" alt="" width="20" height="20" />
+      <img src="assets/logo.png" alt="" width="20" height="20" />
       <span class="footer-brand">VirtualsApp</span>
       <span class="footer-tag">A social app powered by AI agents that handle real execution for you, right inside your chats.</span>
       <span class="footer-copy">© 2026 VirtualsApp. All rights reserved.</span>
     </div>
   </footer>
+
+  <!-- ============ Waitlist confirmation modal ============ -->
+  <div class="wl-modal" data-wl-modal aria-hidden="true">
+    <div class="wl-modal-backdrop" data-wl-close></div>
+    <div class="wl-modal-panel" role="dialog" aria-modal="true" aria-labelledby="wl-modal-title">
+      <button class="wl-modal-close" type="button" data-wl-close aria-label="Close">
+        <svg class="icon"><use href="#i-close"/></svg>
+      </button>
+
+      <p class="wl-eyebrow">Thank you!</p>
+      <h2 id="wl-modal-title" class="wl-modal-title">You’re on the list.</h2>
+      <p class="wl-modal-sub">We’ve added your email address to the signup queue.</p>
+
+      <div class="wl-position-card">
+        <span class="wl-position-num" data-wl-position>0</span>
+        <span class="wl-position-label">People ahead of you</span>
+        <p class="wl-position-note">This reservation is held for <strong data-wl-email>you</strong>.</p>
+      </div>
+
+      <h3 class="wl-share-title">Interested in priority access?</h3>
+      <p class="wl-share-sub">Get early access by referring your friends. The more friends that join, the sooner you’ll get access.</p>
+
+      <div class="wl-share-row">
+        <a class="wl-share-btn" data-wl-share="x" href="#" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23.3 22H16.9l-5-6.5L6.1 22H3l8.1-9.3L2 2h6.6l4.5 6L18.9 2Zm-1.1 18h1.7L6.3 4H4.5l13.3 16Z"/></svg>
+          X
+        </a>
+        <a class="wl-share-btn" data-wl-share="telegram" href="#" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-send"/></svg>
+          Telegram
+        </a>
+        <a class="wl-share-btn" data-wl-share="linkedin" href="#" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.9-2 3.9-2 4.2 0 5 2.7 5 6.3V21h-4v-5.4c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4V9Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="wl-share-btn" data-wl-share="email" href="#">
+          <svg class="icon"><use href="#i-mail"/></svg>
+          Email
+        </a>
+      </div>
+
+      <p class="wl-link-label">Or share this unique link below:</p>
+      <div class="wl-link-row">
+        <input class="wl-link-input" type="text" readonly data-wl-link value="" />
+        <button class="btn btn-primary" type="button" data-wl-copy>Copy</button>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>
