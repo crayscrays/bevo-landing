@@ -8,6 +8,157 @@
 // locally without storing anything.
 const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbxZJi57A5J5WQ4NuDAD2rrd3XFBDW12sXCU1kQlV8aGaewqxo_cUsmctFqhJLx_YRAnEA/exec";
 
+// Ecosystem demo: clicking a feature swaps the phone screenshot so
+// visitors can preview each agent without leaving the page.
+document.querySelectorAll("[data-demo]").forEach((demo) => {
+  const tabs = demo.querySelectorAll("[data-demo-target]");
+  const panels = demo.querySelectorAll("[data-demo-panel]");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.demoTarget;
+
+      tabs.forEach((t) => t.classList.toggle("active", t === tab));
+      panels.forEach((p) => p.classList.toggle("active", p.dataset.demoPanel === target));
+    });
+  });
+});
+
+// Trade prompt tabs: clicking a category swaps the example prompts shown.
+document.querySelectorAll("[data-trade-prompt]").forEach((block) => {
+  const tabs = block.querySelectorAll("[data-trade-target]");
+  const panels = block.querySelectorAll("[data-trade-panel]");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.tradeTarget;
+
+      tabs.forEach((t) => t.classList.toggle("active", t === tab));
+      panels.forEach((p) => p.classList.toggle("active", p.dataset.tradePanel === target));
+    });
+  });
+});
+
+// Social orbit: the two rings spin independently (clockwise / counter-
+// clockwise). Hovering an avatar freezes the spin and pulls every other
+// avatar in toward it; leaving the stage releases them and resumes spin.
+(() => {
+  const stage = document.querySelector("[data-orbit-stage]");
+  if (!stage) return;
+
+  const avatars = [...stage.querySelectorAll(".orbit-avatar")];
+  const outerGroup = stage.querySelector('[data-orbit-group="outer"]');
+  const innerGroup = stage.querySelector('[data-orbit-group="inner"]');
+
+  const currentAngle = (group, prop) => parseFloat(getComputedStyle(group).getPropertyValue(prop)) || 0;
+
+  avatars.forEach((avatar) => {
+    avatar.addEventListener("mouseenter", () => {
+      stage.classList.add("is-paused");
+
+      const outerAngle = currentAngle(outerGroup, "--spin-outer");
+      const innerAngle = currentAngle(innerGroup, "--spin-inner");
+      const hoveredRect = avatar.getBoundingClientRect();
+      const hoveredCenter = { x: hoveredRect.left + hoveredRect.width / 2, y: hoveredRect.top + hoveredRect.height / 2 };
+
+      avatars.forEach((other) => {
+        if (other === avatar) {
+          other.classList.add("is-hot");
+          other.style.setProperty("--nudge-x", "0px");
+          other.style.setProperty("--nudge-y", "0px");
+          return;
+        }
+        other.classList.remove("is-hot");
+
+        const rect = other.getBoundingClientRect();
+        const center = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+        const dx = hoveredCenter.x - center.x;
+        const dy = hoveredCenter.y - center.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const pull = Math.min(dist * 0.4, 70);
+        const screenX = (dx / dist) * pull;
+        const screenY = (dy / dist) * pull;
+
+        // The avatar sits inside a rotated group, so a screen-space nudge
+        // has to be rotated back into that group's local space first.
+        const angle = other.closest(".orbit-group-outer") ? outerAngle : innerAngle;
+        const rad = (-angle * Math.PI) / 180;
+        const localX = screenX * Math.cos(rad) - screenY * Math.sin(rad);
+        const localY = screenX * Math.sin(rad) + screenY * Math.cos(rad);
+
+        other.style.setProperty("--nudge-x", `${localX.toFixed(2)}px`);
+        other.style.setProperty("--nudge-y", `${localY.toFixed(2)}px`);
+      });
+    });
+  });
+
+  stage.addEventListener("mouseleave", () => {
+    stage.classList.remove("is-paused");
+    avatars.forEach((el) => {
+      el.classList.remove("is-hot");
+      el.style.setProperty("--nudge-x", "0px");
+      el.style.setProperty("--nudge-y", "0px");
+    });
+  });
+})();
+
+// Social section: the title/orbit intro fades out ~1s after it scrolls
+// into view, then a scripted Butler chat reveals line by line.
+(() => {
+  const section = document.querySelector(".social-orbit");
+  const chat = section?.querySelector("[data-social-chat]");
+  if (!section || !chat) return;
+
+  const lines = [...chat.querySelectorAll("[data-chat-line]")];
+  let inView = false;
+  let running = false;
+
+  function runChat() {
+    if (!inView) {
+      running = false;
+      return;
+    }
+
+    section.classList.add("is-chatting");
+    lines.forEach((line, i) => {
+      setTimeout(() => line.classList.add("is-visible"), i * 900);
+    });
+
+    const holdAfterLast = 1800;
+    const totalChat = (lines.length - 1) * 900 + holdAfterLast;
+
+    setTimeout(() => {
+      section.classList.remove("is-chatting");
+
+      setTimeout(() => {
+        lines.forEach((line) => line.classList.remove("is-visible"));
+        if (inView) {
+          setTimeout(runChat, 1200);
+        } else {
+          running = false;
+        }
+      }, 700);
+    }, totalChat);
+  }
+
+  function startLoop() {
+    if (running) return;
+    running = true;
+    setTimeout(runChat, 1000);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        inView = entry.isIntersecting;
+        if (entry.isIntersecting) startLoop();
+      });
+    },
+    { threshold: 0.5 }
+  );
+  observer.observe(section);
+})();
+
 // Waitlist confirmation modal: shows the signup queue position and
 // per-visitor referral link once a form submits successfully.
 const wlModal = document.querySelector("[data-wl-modal]");
