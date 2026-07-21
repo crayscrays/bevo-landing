@@ -22,9 +22,9 @@
   --secondary: hsl(155 5% 14%);
   --input: hsl(155 5% 17%);
   --primary: hsl(162 65% 45%);
-  --on-primary: hsl(0 0% 98%);
-  --grad-a: hsl(155 75% 44%);
-  --grad-b: hsl(185 68% 38%);
+  --on-primary: hsl(155 30% 12%);
+  --grad-a: #B6EBEF;
+  --grad-b: #B6EBEF;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -76,7 +76,7 @@ img, svg { display: inline-block; vertical-align: middle; }
 
 /* ---------- typography ---------- */
 h1, h2, h3 {
-  font-family: var(--serif);
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0;
@@ -191,7 +191,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1.25rem;
+  margin-top: 10px;
 }
 .setup-note {
   display: inline-flex;
@@ -302,7 +302,7 @@ h2 {
   height: 100%;
   transform: translateX(-50%);
   object-fit: cover;
-  filter: brightness(1.55);
+  filter: brightness(1.4) contrast(1.1) saturate(0.82) hue-rotate(-6deg);
   z-index: -2;
 }
 .hero-bg-overlay {
@@ -353,6 +353,7 @@ h2 {
 .hero-bottom-group .waitlist-form { margin-top: 0; }
 .waitlist-form .input-email { flex: 1.3; }
 .waitlist-form .input-tg { flex: 0.9; }
+.waitlist-form .btn { padding-top: 0.25rem; padding-bottom: 0.25rem; }
 .waitlist-form.center { margin-inline: auto; justify-content: center; }
 .waitlist-form input {
   flex: 1;
@@ -363,7 +364,7 @@ h2 {
   background: var(--card);
   border: 1px solid var(--input);
   border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
+  padding: 0.25rem 1rem;
   outline: none;
   transition: border-color 0.12s ease, box-shadow 0.12s ease;
 }
@@ -423,8 +424,9 @@ h2 {
 .why h2, .cta h2 {
   max-width: 24ch;
   margin-inline: auto;
-  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-size: clamp(1.9rem, 5vw, 4.75rem);
   line-height: 1.05;
+  white-space: nowrap;
 }
 .why .section-lede, .cta .section-lede {
   font-size: 1.2rem;
@@ -472,6 +474,9 @@ h2 {
 }
 .card p { color: var(--muted-fg); font-size: 0.92rem; letter-spacing: -0.01em; line-height: 1.5; }
 .card-more {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-top: 1.25rem;
   color: hsl(0 0% 100% / 0.4);
   font-size: 0.85rem;
@@ -523,8 +528,6 @@ h2 {
 
 /* ---------- why VirtualsApp ---------- */
 .why {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   background: #000;
   padding: var(--section-y) var(--gutter);
   text-align: center;
@@ -701,29 +704,41 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 0.25rem;
 }
 .social-orbit-copy {
   text-align: center;
   max-width: 34rem;
-  transition: transform 0.8s cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
+  transition: transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 .social-orbit-copy h2 {
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.4rem, 5.4vw, 5.25rem);
   line-height: 1.12;
-  transition: font-size 0.8s cubic-bezier(.4, 0, .2, 1);
+  transform-origin: center top;
+  will-change: transform;
+  transition: transform 0.9s cubic-bezier(.22, 1, .36, 1);
+}
+.social-title-line {
+  position: relative;
+  left: 50%;
+  display: block;
+  width: max-content;
+  max-width: 92vw;
+  white-space: nowrap;
+  transform: translateX(-50%);
 }
 .social-orbit-copy .lede {
-  margin-top: 1.25rem;
+  margin-top: 0.625rem;
   margin-inline: auto;
   max-width: 30rem;
-  transition: opacity 0.5s ease, margin-top 0.6s cubic-bezier(.4, 0, .2, 1), max-height 0.6s cubic-bezier(.4, 0, .2, 1);
-  max-height: 6rem;
-  overflow: hidden;
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease, transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 .social-orbit-copy .btn { margin-top: 2rem; }
 .orbit-stage {
-  transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s cubic-bezier(.4, 0, .2, 1);
+  will-change: opacity, transform, filter;
+  transition: opacity 0.8s ease, filter 0.8s ease, transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 .social-orbit.is-chatting .orbit-stage {
   opacity: 0;
@@ -732,15 +747,14 @@ h2 {
   pointer-events: none;
 }
 .social-orbit.is-chatting .social-orbit-copy {
-  transform: translateY(-28px);
+  transform: translateY(-3px);
 }
 .social-orbit.is-chatting .social-orbit-copy h2 {
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  transform: scale(0.58);
 }
 .social-orbit.is-chatting .social-orbit-copy .lede {
-  opacity: 0;
-  margin-top: 0;
-  max-height: 0;
+  opacity: 0.75;
+  transform: translateY(-10px);
 }
 @media (max-width: 640px) {
   .orbit-stage { display: none; }
@@ -1000,7 +1014,7 @@ h2 {
 }
 .trade-copy .lede {
   color: hsl(155 20% 10% / 0.68);
-  margin-top: 1.5rem;
+  margin-top: 10px;
   max-width: 28rem;
   margin-inline: auto;
   font-size: 1.2rem;
@@ -1017,9 +1031,12 @@ h2 {
   max-width: 320px;
   filter: drop-shadow(0 30px 60px hsl(0 0% 0% / 0.35));
 }
+@media (max-width: 1200px) {
+  .trade-left { transform: translate(60px, -20px); }
+}
 @media (max-width: 900px) {
   .trade-layout { grid-template-columns: 1fr; text-align: center; }
-  .trade-left { align-items: center; }
+  .trade-left { align-items: center; transform: none; }
   .trade-copy .lede { margin-inline: auto; }
   .trade-visual { order: -1; }
   .trade-phone { max-width: 240px; }
@@ -1043,7 +1060,7 @@ h2 {
   color: #111;
   font-family: var(--sans);
   font-style: normal;
-  font-size: 1.9rem;
+  font-size: 1.27rem;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -1105,21 +1122,106 @@ h2 {
 .cta .waitlist-form { margin-top: 2.25rem; }
 
 /* ---------- footer ---------- */
-.footer { border-top: 1px solid var(--border); }
-.footer-inner {
+.footer {
+  padding: 0;
+}
+.footer-box {
+  width: 100%;
+  margin: 0;
+  background: #B6EBEF;
+  border: none;
+  border-radius: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.footer-top {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
-  color: var(--muted-fg);
-  font-size: 0.88rem;
-  letter-spacing: -0.01em;
-  line-height: 1.5;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid hsl(0 0% 0% / 0.15);
 }
-.footer-brand { font-weight: 600; color: var(--foreground); }
-.footer-tag { letter-spacing: -0.01em; }
-.footer-copy { margin-left: auto; }
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  border-radius: 999px;
+  background: hsl(0 0% 0% / 0.1);
+  font-weight: 700;
+  color: #111;
+}
+.footer-logo-pill img { border-radius: 6px; }
+.footer-tagline {
+  color: #111;
+  font-size: 0.95rem;
+}
+.footer-follow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #111;
+  font-size: 0.95rem;
+}
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+.footer-col-right { margin-left: auto; text-align: left; }
+.footer-col h4 {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.6rem;
+}
+.footer-col a {
+  display: block;
+  color: #111;
+  opacity: 0.75;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+}
+.footer-col a:hover { opacity: 1; }
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: hsl(0 0% 0% / 0.1);
+  color: #111;
+}
+.footer-social-link .icon { width: 15px; height: 15px; }
+.footer-bottom {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem clamp(1.5rem, 4vw, 3rem) 1.5rem;
+  color: var(--muted-fg);
+  font-size: 0.85rem;
+}
+@media (max-width: 640px) {
+  .footer-box { text-align: center; align-items: center; }
+  .footer-top { flex-direction: column; }
+  .footer-brand-row { justify-content: center; }
+  .footer-columns { justify-content: center; width: 100%; }
+}
 
 /* ---------- waitlist confirmation modal ---------- */
 .wl-modal {
@@ -1286,8 +1388,6 @@ h2 {
   .ecosystem-copy .lede { margin-inline: auto; }
   .ecosystem-feature { text-align: left; }
   .ecosystem-visual { margin-top: 3rem; }
-  .footer-inner { justify-content: center; text-align: center; }
-  .footer-copy { margin-left: 0; width: 100%; }
 }
 @media (max-width: 560px) {
   .nav-links a:not(.btn) { display: none; }

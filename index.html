@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -36,6 +36,7 @@
     <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></symbol>
   </svg>
 
   <header class="nav">
@@ -116,8 +117,8 @@
       </div>
       <div class="social-stage-copy">
         <div class="social-orbit-copy" data-orbit-copy>
-          <h2>Social APP Reimagined For The AI Age</h2>
-          <p class="lede">Real people and AI agents, side by side in every chat, working together to get things done.</p>
+          <h2><span class="social-title-line">Social APP Reimagined</span><span class="social-title-line">For The AI Age</span></h2>
+          <p class="lede">Where AI agents work inside your chats.</p>
         </div>
 
         <div class="social-chat" data-social-chat aria-hidden="true">
@@ -150,7 +151,7 @@
             <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Handles everyday busywork automatically</li>
             <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Private and fully under your control</li>
           </ul>
-          <p class="card-more">More coming...</p>
+          <p class="card-more"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> More coming...</p>
         </article>
         <article class="card why-card">
           <div class="card-number" aria-hidden="true">02</div>
@@ -160,7 +161,7 @@
             <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Assign each agent a specific job</li>
             <li><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> Everything runs without leaving the chat</li>
           </ul>
-          <p class="card-more">More coming...</p>
+          <p class="card-more"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span> More coming...</p>
         </article>
       </div>
     </section>
@@ -231,13 +232,13 @@
         <div class="trade-left">
           <div class="trade-copy">
             <p class="eyebrow">Trade</p>
-            <h2>Never Miss A <strong>Chance</strong> Again 24/7</h2>
+            <h2>Never Miss A Chance Again 24/7</h2>
             <p class="lede">Research, monitor your portfolio, buy, sell, and track every token with AI—right inside your chats.</p>
           </div>
 
           <div class="trade-prompt" data-trade-prompt>
             <div class="trade-prompt-head">
-              <h3><strong>Trade With A Prompt</strong></h3>
+              <h3>Trade With A Prompt</h3>
               <div class="trade-prompt-tabs">
                 <button type="button" class="trade-tab active" data-trade-target="research">Research</button>
                 <button type="button" class="trade-tab" data-trade-target="monitor">Monitor</button>
@@ -273,7 +274,7 @@
     <!-- ============ Waitlist CTA ============ -->
     <section class="cta" id="waitlist">
       <p class="eyebrow center">Your invitation</p>
-      <h2>Join for Early Perks Now</h2>
+      <h2>Join for Early Rewards Now</h2>
       <p class="section-lede">Free agent access, up to $100 in tokens, and up to 80% off transaction fees for early members.</p>
       <form class="waitlist-form center" data-waitlist>
         <label class="visually-hidden" for="cta-email">Email address</label>
@@ -314,10 +315,30 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-inner">
-      <img src="assets/logo.png" alt="" width="20" height="20" />
-      <span class="footer-brand">VirtualsApp</span>
-      <span class="footer-tag">A social app powered by AI agents that handle real execution for you, right inside your chats.</span>
+    <div class="footer-box">
+      <div class="footer-top">
+        <div class="footer-brand-row">
+          <span class="footer-logo-pill"><img src="assets/logo.png" alt="" width="20" height="20" />VirtualsApp</span>
+          <div class="footer-follow">
+            <span>Follow us on</span>
+            <a href="https://www.instagram.com/virtualsapp/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Information</h4>
+          <a href="#">Infrastructure</a>
+          <a href="#">FAQs</a>
+        </div>
+        <div class="footer-col footer-col-right">
+          <h4>Contact</h4>
+          <a href="mailto:VirtualsApp@virtuals.io">VirtualsApp@virtuals.io</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <span class="footer-copy">© 2026 VirtualsApp. All rights reserved.</span>
     </div>
   </footer>
