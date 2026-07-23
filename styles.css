@@ -21,7 +21,7 @@
   --card: hsl(155 5% 10%);
   --secondary: hsl(155 5% 14%);
   --input: hsl(155 5% 17%);
-  --primary: hsl(162 65% 45%);
+  --primary: #B6EBEF;
   --on-primary: hsl(155 30% 12%);
   --grad-a: #B6EBEF;
   --grad-b: #B6EBEF;
@@ -422,8 +422,11 @@ h2 {
   text-align: center;
 }
 .why h2, .cta h2 {
-  max-width: 24ch;
-  margin-inline: auto;
+  position: relative;
+  left: 50%;
+  width: max-content;
+  max-width: 92vw;
+  transform: translateX(-50%);
   font-size: clamp(1.9rem, 5vw, 4.75rem);
   line-height: 1.05;
   white-space: nowrap;
@@ -713,8 +716,8 @@ h2 {
   transition: transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 .social-orbit-copy h2 {
-  font-size: clamp(2.4rem, 5.4vw, 5.25rem);
-  line-height: 1.12;
+  font-size: clamp(1.9rem, 5vw, 4.75rem);
+  line-height: 1.05;
   transform-origin: center top;
   will-change: transform;
   transition: transform 0.9s cubic-bezier(.22, 1, .36, 1);
@@ -729,7 +732,7 @@ h2 {
   transform: translateX(-50%);
 }
 .social-orbit-copy .lede {
-  margin-top: 0.625rem;
+  margin-top: 10px;
   margin-inline: auto;
   max-width: 30rem;
   will-change: opacity, transform;
@@ -864,8 +867,8 @@ h2 {
   min-width: 0;
 }
 .ecosystem-copy h2 {
-  font-size: clamp(2.5rem, 3.4vw, 3.25rem);
-  line-height: 1.1;
+  font-size: clamp(1.9rem, 5vw, 4.75rem);
+  line-height: 1.05;
   max-width: 22ch;
   margin-inline: auto;
 }
@@ -983,7 +986,7 @@ h2 {
   isolation: isolate;
   overflow: hidden;
   padding: calc(clamp(5rem, 11vw, 9.75rem) - 56px) var(--gutter);
-  background: #7c9c8a url("assets/trade-bg.png") -402px -139px / 2230px 1255px no-repeat;
+  background: #7c9c8a;
   color: #111;
 }
 .trade-layout {
@@ -1008,8 +1011,8 @@ h2 {
 .trade-copy .eyebrow { color: #111; margin-bottom: 1.25rem; text-align: center; }
 .trade-copy h2 {
   color: #111;
-  font-size: clamp(2.5rem, 3.6vw, 3.4rem);
-  line-height: 1.08;
+  font-size: clamp(1.9rem, 5vw, 4.75rem);
+  line-height: 1.05;
   letter-spacing: -0.01em;
 }
 .trade-copy .lede {
