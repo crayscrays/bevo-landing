@@ -21,10 +21,11 @@
   --card: hsl(155 5% 10%);
   --secondary: hsl(155 5% 14%);
   --input: hsl(155 5% 17%);
-  --primary: #B6EBEF;
+  --primary: #28BD91;
   --on-primary: hsl(155 30% 12%);
-  --grad-a: #B6EBEF;
-  --grad-b: #B6EBEF;
+  --on-gradient: hsl(0 0% 98%);
+  --grad-a: #156F79;
+  --grad-b: #138C61;
 
   --radius: 16px;
   --radius-sm: 10px;
@@ -369,7 +370,6 @@ h2 {
 .hero-bottom-group .waitlist-form { margin-top: 0; }
 .waitlist-form .input-email { flex: 1.3; }
 .waitlist-form .input-tg { flex: 0.9; }
-.waitlist-form .btn { padding-top: 0.25rem; padding-bottom: 0.25rem; }
 .waitlist-form.center { margin-inline: auto; justify-content: center; }
 .waitlist-form input {
   flex: 1;
@@ -380,7 +380,7 @@ h2 {
   background: var(--card);
   border: 1px solid var(--input);
   border-radius: var(--radius-sm);
-  padding: 0.25rem 1rem;
+  padding: 0.75rem 1rem;
   outline: none;
   transition: border-color 0.12s ease, box-shadow 0.12s ease;
 }
@@ -488,7 +488,7 @@ h2 {
   font-style: italic;
   font-weight: 400;
   font-size: clamp(1.9rem, 3vw, 2.4rem);
-  color: hsl(235 70% 78%);
+  color: var(--primary);
   margin-bottom: 1.1rem;
 }
 .card h3 {
@@ -570,11 +570,9 @@ h2 {
   flex-direction: column;
   padding: 2rem;
   overflow: hidden;
-  transition: flex-grow 0.35s ease, border-color 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 .why-card h3 { margin-top: 1.5rem; }
-.why-grid:hover .card { flex-grow: 1; }
-.why-grid .card:hover { flex-grow: 1.6; }
 .why-card .orb-sm { margin-bottom: 1.1rem; }
 .tick-list { list-style: none; display: grid; gap: 0.6rem; margin-top: 1rem; }
 .tick-list li {
@@ -696,7 +694,7 @@ h2 {
   border-radius: 999px;
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--on-primary);
+  color: var(--on-gradient);
   box-shadow: 0 14px 32px hsl(0 0% 0% / 0.45);
   pointer-events: auto;
   cursor: pointer;
@@ -847,8 +845,8 @@ h2 {
   border: 1px solid hsl(0 0% 100% / 0.1);
 }
 .social-chat-line[data-speaker="Butler"] .social-chat-text {
-  background: #2f6bff;
-  color: #fff;
+  background: linear-gradient(120deg, var(--grad-a), var(--grad-b));
+  color: var(--on-gradient);
 }
 
 /* ---------- agent ecosystem (interactive demo) ---------- */
@@ -860,17 +858,7 @@ h2 {
   display: flex;
   align-items: center;
   padding: clamp(4rem, 6vw, 5.5rem) var(--gutter);
-  background: linear-gradient(
-    180deg,
-    #000000 0%,
-    #060610 14%,
-    #14141f 30%,
-    #26263a 46%,
-    #3c3c55 60%,
-    #58586f 74%,
-    #78788c 87%,
-    #97979f 100%
-  );
+  background: var(--background);
 }
 .ecosystem-inner {
   max-width: 1360px;
@@ -946,7 +934,7 @@ h2 {
 .ecosystem-feature-icon .icon { width: 16px; height: 16px; }
 .ecosystem-feature.active .ecosystem-feature-icon {
   background: linear-gradient(120deg, var(--grad-a), var(--grad-b));
-  color: var(--on-primary);
+  color: var(--on-gradient);
 }
 .ecosystem-feature > span:last-child { min-width: 0; }
 .ecosystem-feature-title {
@@ -1008,7 +996,7 @@ h2 {
   isolation: isolate;
   overflow: hidden;
   padding: calc(clamp(5rem, 11vw, 9.75rem) - 56px) var(--gutter);
-  background: #7c9c8a;
+  background: #60a993;
   color: #111;
 }
 .trade-layout {
