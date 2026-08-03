@@ -87,36 +87,56 @@ function doPost(e) {
 }
 
 function sendWelcomeEmail_(email, refLink) {
-  var subject = "You're on the VirtualsApp waitlist";
+  var subject = "You're on the list, welcome to Virtuals App";
   var link = refLink || "https://virtuals.app";
   var body =
-    "Hi,\n\n" +
-    "Thanks for joining the VirtualsApp early access waitlist — we've received your request.\n\n" +
-    "Once we launch, product access and rewards are unlocked based on your position in the " +
-    "waitlist queue, including:\n" +
-    "  - Up to $20 in free tokens\n" +
-    "  - Exclusive access to our private trading community\n\n" +
-    "Want to move up the list? Share your personal referral link with friends — every friend " +
-    "who joins through it boosts your queue priority, and you'll also earn up to 80% of the " +
-    "trading fees your referrals generate on VirtualsApp.\n\n" +
-    "Your referral link:\n" + link + "\n\n" +
-    "We'll be in touch as soon as your invite is ready.\n\n" +
-    "— The VirtualsApp Team";
+    "Hi there,\n\n" +
+    "Thanks for signing up! You're officially on the waitlist for Virtuals App.\n\n" +
+    "We're building something we're genuinely excited about. A space where you, your friends, " +
+    "and AI agents come together to connect, and trade stocks and tokens alongside the top 1% " +
+    "around the world. We're putting the finishing touches on it now.\n\n" +
+    "Want in faster, with the best perks?\n" +
+    "Move up the waitlist by inviting friends. Share your landing page link, and every friend " +
+    "who joins bumps you higher, unlocking earlier access, the most exclusive communities, and " +
+    "our best perks. You've got 3 invites to give, so choose wisely.\n\n" +
+    link + "\n\n" +
+    "The moment we launch, you'll be among the first to know, right here in your inbox.\n\n" +
+    "One quick note for your safety: we'll only ever email you about early access and community " +
+    "invites, and the only link we'll ever send is the official App Store or Google Play download. " +
+    "Please ignore anything else claiming to be us.\n\n" +
+    "Talk soon,\n" +
+    "The Virtuals App Team";
+
+  // Layout mirrors a typical bank "connected account" notification email:
+  // a solid brand-color header band with the logo/wordmark, a white card
+  // body with a status pill, headline, bullet benefits, a CTA button, and
+  // a light gray "about this message" footer box.
+  var brand = "#0A564D";
+  var logoUrl = "https://raw.githubusercontent.com/crayscrays/bevo-landing/main/assets/Group%2040.png";
 
   var htmlBody =
-    '<div style="font-family: -apple-system, Arial, sans-serif; font-size: 15px; color: #111; line-height: 1.6;">' +
-    "<p>Hi,</p>" +
-    "<p>Thanks for joining the VirtualsApp early access waitlist — we've received your request.</p>" +
-    "<p>Once we launch, product access and rewards are unlocked based on your position in the waitlist queue, including:</p>" +
-    "<ul>" +
-    "<li>Up to $20 in free tokens</li>" +
-    "<li>Exclusive access to our private trading community</li>" +
-    "</ul>" +
-    "<p>Want to move up the list? Share your personal referral link with friends — every friend who joins through it boosts your queue priority, and you'll also earn up to 80% of the trading fees your referrals generate on VirtualsApp.</p>" +
-    '<p><a href="' + link + '">' + link + "</a></p>" +
-    "<p>We'll be in touch as soon as your invite is ready.</p>" +
-    "<p>— The VirtualsApp Team</p>" +
-    "</div>";
+    '<div style="max-width:600px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Arial,sans-serif;color:#111;">' +
+      '<div style="background:' + brand + ';padding:28px 32px;border-radius:12px 12px 0 0;">' +
+        '<img src="' + logoUrl + '" width="28" height="28" alt="" style="vertical-align:middle;border-radius:6px;display:inline-block;" />' +
+        '<span style="color:#fff;font-weight:700;font-size:19px;margin-left:10px;vertical-align:middle;">Virtuals APP</span>' +
+      '</div>' +
+      '<div style="background:#ffffff;padding:36px 32px;border:1px solid #e6e6e6;border-top:none;border-radius:0 0 12px 12px;">' +
+        '<span style="display:inline-block;background:#eef2f0;color:' + brand + ';font-size:12px;font-weight:700;letter-spacing:0.02em;padding:6px 14px;border-radius:999px;margin-bottom:18px;">You\'re on the list</span>' +
+        '<h1 style="font-size:24px;line-height:1.3;font-weight:800;margin:0 0 18px;color:#111;">Welcome to Virtuals App</h1>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 16px;">Hi there,</p>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 16px;">Thanks for signing up! You\'re officially on the waitlist for Virtuals App.</p>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 16px;">We\'re building something we\'re genuinely excited about. A space where you, your friends, and AI agents come together to connect, and trade stocks and tokens alongside the top 1% around the world. We\'re putting the finishing touches on it now.</p>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 4px;font-weight:700;">Want in faster, with the best perks?</p>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 20px;">Move up the waitlist by inviting friends. Share your landing page link, and every friend who joins bumps you higher, unlocking earlier access, the most exclusive communities, and our best perks. You\'ve got 3 invites to give, so choose wisely.</p>' +
+        '<a href="' + link + '" style="display:inline-block;background:' + brand + ';color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:8px;margin-bottom:24px;">Share your invite link</a>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0 0 28px;">The moment we launch, you\'ll be among the first to know, right here in your inbox.</p>' +
+        '<div style="background:#f6f7f6;border-radius:8px;padding:16px 20px;margin-bottom:24px;">' +
+          '<p style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:#666;margin:0 0 8px;">ONE QUICK NOTE FOR YOUR SAFETY</p>' +
+          '<p style="font-size:12px;line-height:1.6;color:#666;margin:0;">We\'ll only ever email you about early access and community invites, and the only link we\'ll ever send is the official App Store or Google Play download. Please ignore anything else claiming to be us.</p>' +
+        '</div>' +
+        '<p style="font-size:15px;line-height:1.6;margin:0;">Talk soon,<br>The Virtuals App Team</p>' +
+      '</div>' +
+    '</div>';
 
   MailApp.sendEmail({
     to: email,
