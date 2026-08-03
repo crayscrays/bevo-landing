@@ -6,7 +6,7 @@
 // "https://script.google.com/macros/s/AKfyc.../exec".
 // While the endpoint is empty the form just shows the success state
 // locally without storing anything.
-const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbxZJi57A5J5WQ4NuDAD2rrd3XFBDW12sXCU1kQlV8aGaewqxo_cUsmctFqhJLx_YRAnEA/exec";
+const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbwjr3Cg__DMrp0DF8fdigCgGGjKGBBL-VC2NlWMZatW57FQsHDHr4jPuL9IoO02dEXQ/exec";
 
 // Ecosystem demo: clicking a feature swaps the phone screenshot so
 // visitors can preview each agent without leaving the page.
