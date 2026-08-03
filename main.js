@@ -271,12 +271,14 @@ document.querySelectorAll("[data-waitlist]").forEach((form) => {
 
     try {
       if (WAITLIST_ENDPOINT) {
+        const refCode = getReferralCode();
+        const refLink = `${location.origin}${location.pathname}?ref=${refCode}`;
         // text/plain keeps this a "simple" request — no CORS preflight,
         // which Google Apps Script web apps can't answer.
         const res = await fetch(WAITLIST_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({ email, tg, source: "bevo-landing" }),
+          body: JSON.stringify({ email, tg, source: "bevo-landing", ref: refCode, refLink }),
         });
         if (!res.ok) throw new Error(`waitlist endpoint returned ${res.status}`);
       }
